@@ -13,7 +13,7 @@
 
 * Install my favorite tools
 
-	bash setup.sh
+	bash setup.sh "your@mail.address" "Your Name"	# mail and name --> .gitconfig
 	
 * Start to work (life's good :-)
 
