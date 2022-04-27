@@ -11,18 +11,33 @@ sudo apt -y install apt-utils
 sudo apt -y install lsof
 sudo apt -y install rsync
 sudo apt -y install gnome-keyring
-sudo apt -y install python3-pip
-pip3 install python-dotenv
 sudo apt -y install jq
+sudo apt -y install bc
 sudo apt -y install tilix
 sudo apt -y install wireshark
 sudo apt -y install iftop
+sudo apt -y install dnsutils
 sudo apt -y install traceroute
+sudo apt -y install tcpdump
 sudo apt -y install nodejs
+sudo apt -y install moby-engine
+sudo usermod -a -G docker ${USER}
+sudo apt -y install docker-compose
+
+sudo apt -y install libssl-dev
+sudo apt -y install python3-pip
+pip3 install elasticsearch
+pip3 install python-dotenv
 pip3 install prison
+sudo apt -y install cmake
+pip3 install azure-eventhub
+pip3 install colorama
 
 # setup apt channel for vs code and install
-bash code.sh
+bash add_vs_code.sh
+
+# setup dotnet 6.0
+bash add_dotnet.sh
 
 # create .ssh/config if not exists
 if [ ! -r ~/.ssh/config ] ;then
