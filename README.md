@@ -15,16 +15,16 @@
 
 	bash setup.sh "your@mail.address" "Your Name"	# mail and name --> .gitconfig
 
-	Tools installed:
-		network:           wireshark, tcpdump, traceroute, iftop, dnsutils
-		tools:             lsof, rsync, jq, bc, tilix, pip3, cmake (for pip3)
-		lang:              nodejs, dotnet 6 sdk
-		container:         moby-engine(docker) docker-compose
-		IDE:               vs_code
-		python3 modules:   elasticsearch, python-dotenv, prison, azure-eventhub, colorama
+	* Tools installed:
+		* network:           wireshark, tcpdump, traceroute, iftop, dnsutils
+		* tools:             lsof, rsync, jq, bc, tilix, pip3, cmake (for pip3)
+		* lang:              nodejs, dotnet 6 sdk
+		* container:         moby-engine(docker) docker-compose
+		* IDE:               vs_code
+		* python3 modules:   elasticsearch, python-dotenv, prison, azure-eventhub, colorama
 
-	Tools installed by default (debian 11):
-		tools:             bash, curl, g++, gcc, git, gnupg, make, openssh-client, openssh-server, openssh-sftp-server, openssl, perl, python3, sudo, vim,  more and less :-)
+	* Tools installed by default (debian 11):
+		* bash, curl, g++, gcc, git, gnupg, make, openssh-client, openssh-server, openssh-sftp-server, openssl, perl, python3, sudo, vim,  more and less :-)
 
 
 * Start to work (life's good :-)
