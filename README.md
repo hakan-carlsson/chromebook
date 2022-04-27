@@ -13,18 +13,19 @@
 
 * Install my favorite tools
 
-	bash setup.sh "your@mail.address" "Your Name"	# mail and name --> .gitconfig
+	\# mail and name --> .gitconfig <br>
+	$ bash setup.sh "*your@mail.address*"   "*Your Name*"
 
 	* Tools installed:
-		* network:           wireshark, tcpdump, traceroute, iftop, dnsutils
-		* tools:             lsof, rsync, jq, bc, tilix, pip3, cmake (for pip3)
-		* lang:              nodejs, dotnet 6 sdk
-		* container:         moby-engine(docker) docker-compose
-		* IDE:               vs_code
-		* python3 modules:   elasticsearch, python-dotenv, prison, azure-eventhub, colorama
+		* network:<pre>wireshark, tcpdump, traceroute, iftop, dnsutils</pre>
+		* tools:<pre>lsof, rsync, jq, bc, tilix, pip3, cmake (for pip3)</pre>
+		* lang:<pre>nodejs, dotnet 6 sdk</pre>
+		* container:<pre>moby-engine(docker), docker-compose</pre>
+		* IDE:<pre>vs_code</pre>
+		* python3 modules:<pre>elasticsearch, python-dotenv, prison, azure-eventhub, colorama</pre>
 
 	* Tools installed by default (debian 11):
-		* bash, curl, g++, gcc, git, gnupg, make, openssh-client, openssh-server, openssh-sftp-server, openssl, perl, python3, sudo, vim,  more and less :-)
+		<pre>bash, curl, g++, gcc, git, gnupg, make, openssh-client, openssh-server, openssh-sftp-server, openssl, perl, python3, sudo, vim,  more and less :-)</pre>
 
 
 * Start to work (life's good :-)
@@ -46,4 +47,21 @@ hockey@penguin:~/Project$
 
 ![image](https://user-images.githubusercontent.com/39298129/162566318-89c7d7e1-90eb-4bc7-9ba4-f405dddc749d.png)
 
+
+# docker images I've used
+* GO lang
+<pre>
+docker run --rm golang go version
+go version go1.18.1 linux/arm64
+</pre>
+* Elasticsearch, dotnet, grafana
+<pre>
+docker images
+REPOSITORY                                      TAG       IMAGE ID       CREATED      SIZE
+grafana/grafana                                 latest    c0a391e72ecb   6 days ago   270MB
+golang                                          latest    27959cb699fc   6 days ago   818MB
+mcr.microsoft.com/dotnet/sdk                    6.0       4c95c0b8cf84   7 days ago   739MB
+mcr.microsoft.com/dotnet/runtime                6.0       73629d45208b   7 days ago   188MB
+docker.elastic.co/elasticsearch/elasticsearch   7.17.3    2b5ea769f024   8 days ago   605MB
+</pre>
 
