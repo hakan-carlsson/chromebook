@@ -18,14 +18,14 @@
 
 	* Tools installed:
 		* network:<pre>wireshark, tcpdump, traceroute, iftop, dnsutils</pre>
-		* tools:<pre>lsof, rsync, jq, bc, tilix, pip3, cmake (for pip3)</pre>
+		* tools:<pre>lsof, rsync, jq, bc, tilix, pip3, cmake (for pip3), wget, gpg</pre>
 		* lang:<pre>nodejs, dotnet 6 sdk</pre>
 		* container:<pre>moby-engine(docker), docker-compose</pre>
 		* IDE:<pre>vs_code</pre>
 		* python3 modules:<pre>elasticsearch, python-dotenv, prison, azure-eventhub, colorama</pre>
 
 	* Tools installed by default (debian 11):
-		<pre>bash, curl, g++, gcc, git, gnupg, make, openssh-client, openssh-server, openssh-sftp-server, openssl, perl, python3, sudo, vim,  more and less :-)</pre>
+		<pre>bash, curl, g++, gcc, git, make, openssh-client, openssh-server, openssh-sftp-server, openssl, perl, python3, sudo, vim,  more and less :-)</pre>
 
 
 * Start to work (life's good :-)
