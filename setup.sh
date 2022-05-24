@@ -10,6 +10,7 @@ cd $(dirname $0) && {
 sudo apt -y install apt-utils
 sudo apt -y install lsof
 sudo apt -y install rsync
+sudo apt -y install strace
 sudo apt -y install gnome-keyring
 sudo apt -y install jq
 sudo apt -y install bc
@@ -19,6 +20,7 @@ sudo apt -y install iftop
 sudo apt -y install dnsutils
 sudo apt -y install traceroute
 sudo apt -y install tcpdump
+sudo apt -y install netcat
 sudo apt -y install nodejs
 sudo apt -y install moby-engine
 sudo usermod -a -G docker ${USER}
@@ -38,6 +40,12 @@ bash add_vs_code.sh
 
 # setup dotnet 6.0
 bash add_dotnet.sh
+
+# setup az commands
+#
+# https://docs.microsoft.com/sv-se/cli/azure/install-azure-cli-linux?pivots=apt
+# bash add_az.sh			# only works for amd64
+# bash add_az_manually.sh		# changed to add for arm64
 
 # create .ssh/config if not exists
 if [ ! -r ~/.ssh/config ] ;then
