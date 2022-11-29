@@ -14,7 +14,8 @@ sudo apt -y install strace
 sudo apt -y install gnome-keyring
 sudo apt -y install jq
 sudo apt -y install bc
-sudo apt -y install tilix
+# sudo apt -y install tilix	# not working well on chrombook, use huge amount of cpu
+sudo apt -y install xterm	# use instead of tilix for now... Old style :-)
 sudo apt -y install wireshark
 sudo apt -y install iftop
 sudo apt -y install dnsutils
@@ -76,7 +77,12 @@ if [ -f /usr/lib/git-core/git-sh-prompt ] ;then
   GIT_PS1_SHOWDIRTYSTATE=true
   GIT_PS1_SHOWCOLORHINTS=true
   GIT_PS1_UNTRACKEDFILES=true
-  PROMPT_COMMAND="__git_ps1 '\u@\h:\w' '\\$ '"
+  case "$TERM" in
+  xterm*|rxvt*)
+    PROMPT_COMMAND="__git_ps1 '\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]\u@\h:\w' '\\$ '" ;;
+  *)
+    PROMPT_COMMAND="__git_ps1 '\u@\h:\w' '\\$ '" ;;
+  esac
 fi
 if [ -f /usr/share/bash-completion/completions/git ] ;then
   source /usr/share/bash-completion/completions/git
