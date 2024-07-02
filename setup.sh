@@ -8,50 +8,30 @@ Username=${2-"Your Name"}
 # make sure we are in the repo dir
 cd $(dirname $0) && {
 
-# install favorite tools
-install_if_missing apt-utils
-install_if_missing lsof
-install_if_missing rsync
-install_if_missing strace
-install_if_missing gnome-keyring
-install_if_missing jq
-install_if_missing bc
-# sudo apt-get -y install tilix	# not working well on chrombook, use huge amount of cpu
-install_if_missing xterm	# use instead of tilix for now... Old style :-)
-install_if_missing wireshark
-install_if_missing iftop
-install_if_missing dnsutils
-install_if_missing traceroute
-install_if_missing tcpdump
-install_if_missing netcat-openbsd
-install_if_missing nodejs
-install_if_missing docker.io
-sudo usermod -a -G docker ${USER}
-install_if_missing docker-compose
+  # install favorite tools
+  install_if_missing apt-utils lsof rsync strace gnome-keyring jq bc btop
+  # sudo apt-get -y install tilix	# not working well on chrombook, use huge amount of cpu
+  install_if_missing xterm	# use instead of tilix for now... Old style :-)
+  install_if_missing wireshark iftop dnsutils traceroute tcpdump netcat-openbsd nodejs docker.io docker-compose
+  sudo usermod -a -G docker ${USER}
 
-install_if_missing libssl-dev
-install_if_missing python3-pip
-install_if_missing python3-elasticsearch
-install_if_missing python3-dotenv
-install_if_missing python3-prison
-install_if_missing cmake
-# pip3 install azure-eventhub
-install_if_missing python3-colorama
+  install_if_missing libssl-dev python3-pip python3-elasticsearch python3-dotenv python3-prison cmake python3-colorama
+  # pip3 install azure-eventhub
 
-# setup apt channel for vs code and install
-bash add_vs_code.sh
+  # setup apt channel for vs code and install
+  bash add_vs_code.sh
 
-# setup dotnet 6.0
-# bash add_dotnet.sh
+  # setup dotnet 6.0
+  # bash add_dotnet.sh
 
-# setup az commands
-#
-# https://docs.microsoft.com/sv-se/cli/azure/install-azure-cli-linux?pivots=apt
-# bash add_az.sh			# only works for amd64
-# bash add_az_manually.sh		# changed to add for arm64
+  # setup az commands
+  #
+  # https://docs.microsoft.com/sv-se/cli/azure/install-azure-cli-linux?pivots=apt
+  # bash add_az.sh			# only works for amd64
+  # bash add_az_manually.sh		# changed to add for arm64
 
-# create .ssh/config if not exists
-if [ ! -r ~/.ssh/config ] ;then
+  # create .ssh/config if not exists
+  if [ ! -r ~/.ssh/config ] ;then
     cat >> ~/.ssh/config << E_O_F
 
 Host github.com
@@ -64,16 +44,16 @@ Host ssh.dev.azure.com
     IdentitiesOnly yes
 
 E_O_F
-fi
+  fi
 
-# remove GIT Stuff if it exists
-GITStart="GIT Stuff to make life easier"
-GITEnd="GIT Stuff ends here"
-sed -i -e "/^# ${GITStart}/,/# ${GITEnd}/d" ~/.bashrc
+  # remove GIT Stuff if it exists
+  GITStart="GIT Stuff to make life easier"
+  GITEnd="GIT Stuff ends here"
+  sed -i -e "/^# ${GITStart}/,/# ${GITEnd}/d" ~/.bashrc
 
-# add GIT Stuff at end
-echo "# ${GITStart}" >> ~/.bashrc
-cat >> ~/.bashrc << 'E_O_F'
+  # add GIT Stuff at end
+  echo "# ${GITStart}" >> ~/.bashrc
+  cat >> ~/.bashrc << 'E_O_F'
 if [ -f /usr/lib/git-core/git-sh-prompt ] ;then
   . /usr/lib/git-core/git-sh-prompt
   GIT_PS1_SHOWDIRTYSTATE=true
@@ -90,10 +70,10 @@ if [ -f /usr/share/bash-completion/completions/git ] ;then
   source /usr/share/bash-completion/completions/git
 fi
 E_O_F
-echo "# ${GITEnd}" >> ~/.bashrc
+  echo "# ${GITEnd}" >> ~/.bashrc
 
-# create .gitconfig if not exists
-if [ ! -r ~/.gitconfig ] ;then
+  # create .gitconfig if not exists
+  if [ ! -r ~/.gitconfig ] ;then
     cat >> ~/.gitconfig << E_O_F
 
 [user]
@@ -109,10 +89,21 @@ if [ ! -r ~/.gitconfig ] ;then
 	type = cat-file -t
 	dump = cat-file -p
 E_O_F
-fi
+  fi
 
+  # remove Python Stuff if it exists
+  PYStart="Python Stuff to make life easier"
+  PYEnd="Python Stuff ends here"
+  sed -i -e "/^# ${PYStart}/,/# ${PYEnd}/d" ~/.bashrc
 
-# add .code-special, manually add to .bashrc
-cp dot.code-special.sh ~/.code-special.sh
+  # add Python Stuff at end
+  echo "# ${PYStart}" >> ~/.bashrc
+  cat >> ~/.bashrc << E_O_F
+# stop stupid python from creating__pycache__
+export PYTHONDONTWRITEBYTECODE=1
+E_O_F
+  echo "# ${PYEnd}" >> ~/.bashrc
 
+  # add .code-special, manually add to .bashrc
+  cp dot.code-special.sh ~/.code-special.sh
 }

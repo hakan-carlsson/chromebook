@@ -52,16 +52,7 @@ hockey@penguin:~/Project$
 * GO lang
 <pre>
 docker run --rm golang go version
-go version go1.18.1 linux/arm64
+go version go1.22.4 linux/arm64
 </pre>
 * Elasticsearch, dotnet, grafana
-<pre>
-docker images
-REPOSITORY                                      TAG       IMAGE ID       CREATED      SIZE
-grafana/grafana                                 latest    c0a391e72ecb   6 days ago   270MB
-golang                                          latest    27959cb699fc   6 days ago   818MB
-mcr.microsoft.com/dotnet/sdk                    6.0       4c95c0b8cf84   7 days ago   739MB
-mcr.microsoft.com/dotnet/runtime                6.0       73629d45208b   7 days ago   188MB
-docker.elastic.co/elasticsearch/elasticsearch   7.17.3    2b5ea769f024   8 days ago   605MB
-</pre>
 
