@@ -3,44 +3,46 @@
 Mailaddress=${1-"your@mail.address"}
 Username=${2-"Your Name"}
 
+. setup.env
+
 # make sure we are in the repo dir
 cd $(dirname $0) && {
 
 # install favorite tools
-sudo apt -y install apt-utils
-sudo apt -y install lsof
-sudo apt -y install rsync
-sudo apt -y install strace
-sudo apt -y install gnome-keyring
-sudo apt -y install jq
-sudo apt -y install bc
-# sudo apt -y install tilix	# not working well on chrombook, use huge amount of cpu
-sudo apt -y install xterm	# use instead of tilix for now... Old style :-)
-sudo apt -y install wireshark
-sudo apt -y install iftop
-sudo apt -y install dnsutils
-sudo apt -y install traceroute
-sudo apt -y install tcpdump
-sudo apt -y install netcat
-sudo apt -y install nodejs
-sudo apt -y install moby-engine
+install_if_missing apt-utils
+install_if_missing lsof
+install_if_missing rsync
+install_if_missing strace
+install_if_missing gnome-keyring
+install_if_missing jq
+install_if_missing bc
+# sudo apt-get -y install tilix	# not working well on chrombook, use huge amount of cpu
+install_if_missing xterm	# use instead of tilix for now... Old style :-)
+install_if_missing wireshark
+install_if_missing iftop
+install_if_missing dnsutils
+install_if_missing traceroute
+install_if_missing tcpdump
+install_if_missing netcat-openbsd
+install_if_missing nodejs
+install_if_missing docker.io
 sudo usermod -a -G docker ${USER}
-sudo apt -y install docker-compose
+install_if_missing docker-compose
 
-sudo apt -y install libssl-dev
-sudo apt -y install python3-pip
-pip3 install elasticsearch
-pip3 install python-dotenv
-pip3 install prison
-sudo apt -y install cmake
-pip3 install azure-eventhub
-pip3 install colorama
+install_if_missing libssl-dev
+install_if_missing python3-pip
+install_if_missing python3-elasticsearch
+install_if_missing python3-dotenv
+install_if_missing python3-prison
+install_if_missing cmake
+# pip3 install azure-eventhub
+install_if_missing python3-colorama
 
 # setup apt channel for vs code and install
 bash add_vs_code.sh
 
 # setup dotnet 6.0
-bash add_dotnet.sh
+# bash add_dotnet.sh
 
 # setup az commands
 #

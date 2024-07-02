@@ -5,7 +5,7 @@
 	https://www.aboutchromebooks.com/news/chrome-os-94-brings-debian-bullseye-to-linux-on-chromebooks/
 
 	chrome://flags#crostini-container-install
-	set to Bullseye / Debian 11
+	set to Bookworm / Debian 12
 
 * Enable linux:
 
@@ -33,7 +33,7 @@
 ```
 hockey@penguin:~$ mkdir -p Project
 hockey@penguin:~$ cd Project/
-hockey@penguin:~/Project$ git clone git@github.com:hakan-carlsson/chromebook.git
+hockey@penguin:~/Project$ git clone https://github.com/hakan-carlsson/chromebook.git
 Cloning into 'chromebook'...
 remote: Enumerating objects: 13, done.
 remote: Counting objects: 100% (13/13), done.
