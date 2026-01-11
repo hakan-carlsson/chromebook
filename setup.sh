@@ -9,7 +9,7 @@ Username=${2-"Your Name"}
 cd $(dirname $0) && {
 
   # install favorite tools
-  install_if_missing apt-utils lsof rsync strace gnome-keyring jq bc btop
+  install_if_missing apt-utils lsof rsync strace gnome-keyring jq bc btop tmux
   # sudo apt-get -y install tilix	# not working well on chrombook, use huge amount of cpu
   install_if_missing xterm	# use instead of tilix for now... Old style :-)
   install_if_missing wireshark iftop dnsutils traceroute tcpdump netcat-openbsd nodejs docker.io docker-compose
@@ -17,6 +17,8 @@ cd $(dirname $0) && {
 
   install_if_missing libssl-dev python3-pip python3-elasticsearch python3-dotenv python3-prison cmake python3-colorama
   # pip3 install azure-eventhub
+
+  install_if_missing libswitch-perl libcommon-sense-perl libnumber-format-perl
 
   # setup apt channel for vs code and install
   bash add_vs_code.sh
